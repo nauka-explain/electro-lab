@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Комплект №3. Лабораторная работа №13. Измерение работы электрического тока</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <filter id="sh" x="-20%" y="-20%" width="140%" height="150%"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#000" flood-opacity=".5"/></filter>
+  <filter id="sh2" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="2.5" stdDeviation="2" flood-color="#000" flood-opacity=".45"/></filter>
+  <linearGradient id="gPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3d06a"/><stop offset="1" stop-color="#d4a237"/></linearGradient>
+  <linearGradient id="gBlue" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#63bdf0"/><stop offset="1" stop-color="#3a8fc7"/></linearGradient>
+  <linearGradient id="gMPlate" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a3fb8"/><stop offset="1" stop-color="#16206e"/></linearGradient>
+  <linearGradient id="gDark" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#34373f"/><stop offset="1" stop-color="#111215"/></linearGradient>
+  <linearGradient id="gGlare" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".7" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <linearGradient id="gInner" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#000" stop-opacity=".24"/><stop offset=".22" stop-color="#000" stop-opacity="0"/><stop offset=".85" stop-color="#000" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".1"/></linearGradient>
+  <radialGradient id="gRed" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#ff8c80"/><stop offset=".55" stop-color="#c81e1e"/><stop offset="1" stop-color="#6e0b0b"/></radialGradient>
+  <radialGradient id="gBlk" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#8a8a8a"/><stop offset=".55" stop-color="#262626"/><stop offset="1" stop-color="#000"/></radialGradient>
+  <radialGradient id="gMetal" cx=".35" cy=".3" r=".85"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#cdd1d7"/><stop offset="1" stop-color="#6f757e"/></radialGradient>
+  <linearGradient id="gCer" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fcfbf6"/><stop offset="1" stop-color="#c9c2ac"/></linearGradient>
+  <linearGradient id="gCell" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15171c"/><stop offset=".35" stop-color="#5a627a"/><stop offset="1" stop-color="#101216"/></linearGradient>
+  <linearGradient id="gSilverH" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#8d9199"/><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#80858d"/></linearGradient>
+  <linearGradient id="gSilverV" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#bfc3c9"/><stop offset="1" stop-color="#7b8089"/></linearGradient>
+  <linearGradient id="gTube" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0b57a"/><stop offset=".5" stop-color="#b9682f"/><stop offset="1" stop-color="#6e3513"/></linearGradient>
+  <pattern id="wood" width="240" height="120" patternUnits="userSpaceOnUse" patternTransform="scale(.5)">
+    <rect width="240" height="60" fill="#c9a670"/><rect y="60" width="240" height="60" fill="#c19c66"/>
+    <path d="M0 0H240M0 60H240M0 120H240" stroke="#7a5a2c" stroke-width="2" opacity=".7"/>
+    <path d="M0 0V60M120 60V120" stroke="#7a5a2c" stroke-width="2" opacity=".6"/>
+    <path d="M10 12C60 6 100 18 150 10S210 16 235 12M20 34C70 28 120 40 170 32M12 78C70 72 110 84 160 76S220 82 238 78M30 100C80 94 130 106 190 98" stroke="#8d6b36" stroke-width="1" fill="none" opacity=".35"/>
+    <rect width="240" height="4" fill="#fff" opacity=".12"/><rect y="60" width="240" height="4" fill="#fff" opacity=".12"/>
+  </pattern>
+</defs></svg>
+
+<header class="top"><h1 id="ttl">Комплект №3. Лабораторная работа №13. Измерение работы электрического тока</h1></header>
+
+<main class="app">
+  <nav class="nav" id="segW" aria-label="Выбор лабораторной работы">
+    <button data-w="12"><b>№12</b><span>Сопротивление резистора</span></button>
+    <button data-w="13" class="on"><b>№13</b><span>Работа электрического тока</span></button>
+    <button data-w="14"><b>№14</b><span>Мощность электрического тока</span></button>
+    <button data-w="15"><b>№15</b><span>Зависимость тока от напряжения</span></button>
+  </nav>
+  <section class="left">
+    <svg id="case" viewBox="0 0 1000 600" role="img" aria-label="Кейс с оборудованием, комплект №3"></svg>
+    <div class="card">
+      <h2>Задание</h2>
+      <div class="row small">Исследуемый резистор:
+        <div class="seg" id="segR" role="group" aria-label="Исследуемый резистор">
+          <button data-r="r1">R-1</button><button data-r="r2" class="on">R-2</button><button data-r="r3">R-3</button>
+        </div>
+      </div>
+      <div id="taskText"></div>
+    </div>
+  </section>
+
+  <section class="deskwrap">
+    <div class="tools">
+      <button id="undo" data-tip="Отменить (Ctrl+Z)" aria-label="Отменить"><svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h10a6 6 0 0 1 0 12h-3"/></svg></button>
+      <button id="redo" data-tip="Повторить (Ctrl+Y)" aria-label="Повторить"><svg viewBox="0 0 24 24"><path d="m15 14 5-5-5-5M20 9H10a6 6 0 0 0 0 12h3"/></svg></button>
+      <button id="restart" data-tip="Начать заново" aria-label="Начать заново"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8M3 3v5h5"/></svg></button>
+      <span class="sep"></span>
+      <button id="zoom" class="txt" data-tip="Масштаб 100%" aria-label="Масштаб 100%">100%</button>
+      <button id="hintBtn" data-tip="Подсказка (H)" aria-label="Подсказка"><svg viewBox="0 0 24 24"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5M9 18h6M10 22h4"/></svg></button>
+      <button id="helpBtn" data-tip="Управление и горячие клавиши (?)" aria-label="Справка"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></svg></button>
+      <button id="snd" data-tip="Звук: вкл (M)" aria-label="Звук"><svg viewBox="0 0 24 24"><path d="M11 5 6 9H2v6h4l5 4zM15.5 8.5a5 5 0 0 1 0 7M19 5a9 9 0 0 1 0 14"/></svg></button>
+    </div>
+    <div id="hint" hidden role="status"></div>
+    <svg id="desk" aria-label="Рабочий стол">
+      <g id="world">
+        <rect id="bg" x="-20000" y="-20000" width="40000" height="40000" fill="url(#wood)"/>
+        <g id="gS"></g><g id="gI"></g><g id="gW"></g><g id="gT"></g><g id="gR"></g>
+      </g>
+      <rect id="mq" style="display:none" fill="rgba(74,163,255,.18)" stroke="#4aa3ff" stroke-width="1.5" stroke-dasharray="6 4"/>
+    </svg>
+  </section>
+
+  <section class="right">
+    <div class="card">
+      <h2>Черновик</h2>
+      <div class="row" id="draft1">
+        <label>I, А <input id="dI" inputmode="decimal" aria-label="Сила тока, А"></label>
+        <label>U, В <input id="dU" inputmode="decimal" aria-label="Напряжение, В"></label>
+      </div>
+      <table class="tbl" id="draft3" hidden>
+        <thead><tr><th>№ опыта</th><th>I, А</th><th>U, В</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td><input id="i1" inputmode="decimal" aria-label="Опыт 1, сила тока"></td><td><input id="u1" inputmode="decimal" aria-label="Опыт 1, напряжение"></td></tr>
+          <tr><td>2</td><td><input id="i2" inputmode="decimal" aria-label="Опыт 2, сила тока"></td><td><input id="u2" inputmode="decimal" aria-label="Опыт 2, напряжение"></td></tr>
+          <tr><td>3</td><td><input id="i3" inputmode="decimal" aria-label="Опыт 3, сила тока"></td><td><input id="u3" inputmode="decimal" aria-label="Опыт 3, напряжение"></td></tr>
+        </tbody>
+      </table>
+      <svg id="plot" viewBox="0 0 240 150" hidden role="img" aria-label="График зависимости силы тока от напряжения"></svg>
+      <textarea id="notes" rows="5" placeholder="Заметки и расчёты"></textarea>
+    </div>
+    <div class="card">
+      <h2>Проверка</h2>
+      <div class="row">
+        <input id="ans" inputmode="decimal" placeholder="A, Дж" aria-label="Работа тока в джоулях">
+        <select id="conc" hidden aria-label="Вывод">
+          <option value="">Вывод…</option>
+          <option value="dir">Сила тока прямо пропорциональна напряжению</option>
+          <option value="inv">Сила тока обратно пропорциональна напряжению</option>
+          <option value="none">Сила тока не зависит от напряжения</option>
+        </select>
+        <button class="act" id="chk">Проверить</button>
+      </div>
+      <p id="res" role="status"></p>
+      <p id="warn" role="status"></p>
+    </div>
+  </section>
+</main>
+
+<footer>Разработано специально для частной библиотеки <a href="https://t.me/nauka_explain" target="_blank" rel="noopener">Поясни за науку</a></footer>
+
+<div id="help" hidden role="dialog" aria-modal="true" aria-labelledby="helpT"><div class="box">
+  <button id="helpX" aria-label="Закрыть">×</button>
+  <h2 id="helpT">Управление</h2>
+  <h3>Мышь</h3>
+  <p>Перетащи прибор из кейса на стол</p>
+  <p>Перетащи прибор обратно на кейс, чтобы убрать его со стола</p>
+  <p>Клик по прибору — выделить, Ctrl или Shift + клик — добавить к выделению</p>
+  <p>Протяни рамку по пустому месту стола — выделить несколько приборов</p>
+  <p>Выделенные приборы переносятся, поворачиваются и убираются в кейс вместе</p>
+  <p>Провод: зажми клемму и протяни до другой клеммы</p>
+  <p>Или кликни по первой клемме, а затем по второй</p>
+  <p>Правая кнопка мыши по проводу — цвет и удаление</p>
+  <p>Клик по рычагу — замкнуть или разомкнуть ключ</p>
+  <p>Ползунок реостата двигай мышью</p>
+  <p>Колесо мыши — масштаб</p>
+  <p>Сдвиг стола — средняя или правая кнопка мыши по пустому месту, либо пробел и перетаскивание</p>
+  <h3>Горячие клавиши</h3>
+  <dl>
+    <dt><kbd>Ctrl</kbd> + <kbd>Z</kbd></dt><dd>Отменить</dd>
+    <dt><kbd>Ctrl</kbd> + <kbd>Y</kbd> или <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Z</kbd></dt><dd>Повторить</dd>
+    <dt><kbd>Ctrl</kbd> + <kbd>A</kbd></dt><dd>Выделить все приборы на столе</dd>
+    <dt><kbd>R</kbd></dt><dd>Повернуть прибор под курсором или выделенную группу</dd>
+    <dt><kbd>Delete</kbd></dt><dd>Убрать выделенное в кейс (в меню провода — удалить провод)</dd>
+    <dt><kbd>H</kbd></dt><dd>Подсказка</dd>
+    <dt><kbd>M</kbd></dt><dd>Включить или выключить звук</dd>
+    <dt><kbd>?</kbd></dt><dd>Это окно</dd>
+    <dt><kbd>Esc</kbd></dt><dd>Снять выделение, отменить провод, закрыть окна</dd>
+  </dl>
+  <h3>Кнопки над столом</h3>
+  <p>100% — стандартный масштаб</p>
+  <p>Круговая стрелка — начать заново с новым набором резисторов и камерой по центру</p>
+</div></div>
+<svg id="float" aria-hidden="true"><g id="fl"><g id="fs"><g id="fg"></g></g></g></svg>
+<div id="tip" hidden></div>
+<div id="pop" hidden>
+  <div class="row" role="group" aria-label="Цвет провода">
+    <button class="sw" data-c="#d22" style="background:#d22" aria-label="Красный"></button>
+    <button class="sw" data-c="#2468d8" style="background:#2468d8" aria-label="Синий"></button>
+    <button class="sw" data-c="#2e9e4a" style="background:#2e9e4a" aria-label="Зелёный"></button>
+    <button class="sw" data-c="#f2c200" style="background:#f2c200" aria-label="Жёлтый"></button>
+    <button class="sw" data-c="#222" style="background:#222" aria-label="Чёрный"></button>
+  </div>
+  <button class="act sec" id="del">Удалить провод</button>
+</div>
+<script src="js/solver.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
